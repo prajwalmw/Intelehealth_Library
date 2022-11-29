@@ -19,6 +19,7 @@ import androidx.multidex.MultiDexApplication;
 import com.circle.ayu.R;
 import com.circle.ayu.database.InteleHealthDatabaseHelper;
 import com.circle.ayu.utilities.SessionManager;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.parse.Parse;
 
