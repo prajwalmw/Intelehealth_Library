@@ -1,5 +1,5 @@
 *.iml
-*.json
+
 .gradle
 /assets
 salt.env
