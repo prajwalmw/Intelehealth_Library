@@ -105,6 +105,8 @@
         <item name="android:textSize">@dimen/edittext_textsize_16sp</item>
     </style>
 
+    <!--TODO: uncomment later.-->
+<!--
     <style name="ScrollingPagerIndicator">
         <item name="spi_dotColor">@android:color/darker_gray</item>
         <item name="spi_dotSelectedColor">@android:color/darker_gray</item>
@@ -115,6 +117,7 @@
         <item name="spi_visibleDotThreshold">2</item>
         <item name="spi_looped">false</item>
     </style>
+-->
 
     <style name="DatePicker.Theme" parent="Theme.AppCompat.Light.Dialog">
         <!-- Customize your theme here. -->
@@ -294,6 +297,8 @@
         <item name="android:textAllCaps">false</item>
 
     </style>
+   <!-- TODO: uncomment later.-->
+<!--
     <style name="CustomTabText" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">@dimen/achieve_tab_title_text_size</item>
         <item name="android:textColor">@color/textColorBlack</item>
@@ -303,6 +308,7 @@
         <item name="textAllCaps">false</item>
         <item name="tabSelectedTextColor">@color/textColorBlack</item>
     </style>
+-->
 
     <style name="personal_txtview">
         <item name="android:textSize">
