@@ -1,10 +1,10 @@
 
 package com.circle.ayu.models.pushRequestApiCall;
 
+import com.circle.ayu.models.dto.VisitAttribute_Speciality;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.intelehealth.app.models.dto.VisitAttribute_Speciality;
 
 import java.util.List;
 

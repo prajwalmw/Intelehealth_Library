@@ -1,9 +1,9 @@
 package com.circle.ayu.database.dao;
 
-import static org.intelehealth.app.utilities.UuidDictionary.ENCOUNTER_ADULTINITIAL;
-import static org.intelehealth.app.utilities.UuidDictionary.ENCOUNTER_VISIT_COMPLETE;
-import static org.intelehealth.app.utilities.UuidDictionary.ENCOUNTER_VISIT_NOTE;
-import static org.intelehealth.app.utilities.UuidDictionary.ENCOUNTER_VITALS;
+import static com.circle.ayu.utilities.UuidDictionary.ENCOUNTER_ADULTINITIAL;
+import static com.circle.ayu.utilities.UuidDictionary.ENCOUNTER_VISIT_COMPLETE;
+import static com.circle.ayu.utilities.UuidDictionary.ENCOUNTER_VISIT_NOTE;
+import static com.circle.ayu.utilities.UuidDictionary.ENCOUNTER_VITALS;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -12,18 +12,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.app.IntelehealthApplication;
+import com.circle.ayu.models.NotificationModel;
+import com.circle.ayu.models.dto.EncounterDTO;
+import com.circle.ayu.models.dto.ObsDTO;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.SessionManager;
+import com.circle.ayu.utilities.UuidDictionary;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.gson.Gson;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.app.IntelehealthApplication;
-import org.intelehealth.app.models.NotificationModel;
-import org.intelehealth.app.models.dto.EncounterDTO;
-import org.intelehealth.app.models.dto.ObsDTO;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.SessionManager;
-import org.intelehealth.app.utilities.UuidDictionary;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.util.ArrayList;
 import java.util.List;

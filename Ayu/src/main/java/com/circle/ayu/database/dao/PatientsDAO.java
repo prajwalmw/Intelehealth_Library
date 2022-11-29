@@ -1,5 +1,6 @@
 package com.circle.ayu.database.dao;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,22 +8,21 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.app.IntelehealthApplication;
+import com.circle.ayu.models.FamilyMemberRes;
+import com.circle.ayu.models.Patient;
+import com.circle.ayu.models.dto.PatientAttributeTypeMasterDTO;
+import com.circle.ayu.models.dto.PatientAttributesDTO;
+import com.circle.ayu.models.dto.PatientDTO;
+import com.circle.ayu.models.dto.VisitDTO;
+import com.circle.ayu.models.pushRequestApiCall.Attribute;
+import com.circle.ayu.services.MyIntentService;
+import com.circle.ayu.utilities.DateAndTimeUtils;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.StringUtils;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.app.IntelehealthApplication;
-import org.intelehealth.app.models.FamilyMemberRes;
-import org.intelehealth.app.models.Patient;
-import org.intelehealth.app.models.dto.PatientAttributeTypeMasterDTO;
-import org.intelehealth.app.models.dto.PatientAttributesDTO;
-import org.intelehealth.app.models.dto.PatientDTO;
-import org.intelehealth.app.models.dto.VisitDTO;
-import org.intelehealth.app.models.pushRequestApiCall.Attribute;
-import org.intelehealth.app.services.MyIntentService;
-import org.intelehealth.app.utilities.DateAndTimeUtils;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.StringUtils;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -243,6 +243,7 @@ public class PatientsDAO {
         return isInserted;
     }
 
+    @SuppressLint("Range")
     public List<Attribute> getPatientAttributes(String patientuuid) throws DAOException {
         List<Attribute> patientAttributesList = new ArrayList<>();
         SQLiteDatabase db = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
@@ -277,7 +278,8 @@ public class PatientsDAO {
         SQLiteDatabase db = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
         db.beginTransaction();
         try {
-            Cursor idCursor = db.rawQuery("SELECT value FROM tbl_patient_attribute where patientuuid = ? AND person_attribute_type_uuid=? AND voided='0' COLLATE NOCASE", new String[]{patientuuid, "10720d1a-1471-431b-be28-285d64767093"});
+            Cursor idCursor = db.rawQuery("SELECT value FROM tbl_patient_attribute where patientuuid = ? AND person_attribute_type_uuid=? " +
+                    "AND voided='0' COLLATE NOCASE", new String[]{patientuuid, "10720d1a-1471-431b-be28-285d64767093"});
 
             if (idCursor.getCount() != 0) {
                 while (idCursor.moveToNext()) {
@@ -301,7 +303,8 @@ public class PatientsDAO {
         SQLiteDatabase db = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
         db.beginTransaction();
         try {
-            Cursor cursor = db.rawQuery("SELECT patientuuid FROM tbl_patient_attribute where value = ? AND sync='0' COLLATE NOCASE", new String[]{houseHoldValue});
+            Cursor cursor = db.rawQuery("SELECT patientuuid FROM tbl_patient_attribute where value = ? AND sync='0' COLLATE NOCASE",
+                    new String[]{houseHoldValue});
 
             if (cursor.getCount() != 0) {
                 while (cursor.moveToNext()) {
@@ -325,12 +328,14 @@ public class PatientsDAO {
         SQLiteDatabase db = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
         db.beginTransaction();
         try {
-            Cursor cursor = db.rawQuery("SELECT openmrs_id,first_name,middle_name,last_name FROM tbl_patient where uuid = ? COLLATE NOCASE", new String[]{patientuuid});
+            Cursor cursor = db.rawQuery("SELECT openmrs_id,first_name,middle_name,last_name FROM tbl_patient where uuid = ? COLLATE NOCASE",
+                    new String[]{patientuuid});
             if (cursor.getCount() != 0) {
                 while (cursor.moveToNext()) {
                     FamilyMemberRes familyMemberRes = new FamilyMemberRes();
                     familyMemberRes.setOpenMRSID(cursor.getString(cursor.getColumnIndexOrThrow("openmrs_id")));
-                    familyMemberRes.setName(cursor.getString(cursor.getColumnIndexOrThrow("first_name")) + " " + cursor.getString(cursor.getColumnIndexOrThrow("last_name")));
+                    familyMemberRes.setName(cursor.getString(cursor.getColumnIndexOrThrow("first_name")) + " " +
+                            cursor.getString(cursor.getColumnIndexOrThrow("last_name")));
                     listPatientNames.add(familyMemberRes);
 //                  middle_name = cursor.getString(cursor.getColumnIndexOrThrow("middle_name"));
                 }
@@ -346,6 +351,7 @@ public class PatientsDAO {
         return listPatientNames;
     }
 
+    @SuppressLint("Range")
     public String getAttributesName(String attributeuuid) throws DAOException {
         SQLiteDatabase db = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
         db.beginTransaction();

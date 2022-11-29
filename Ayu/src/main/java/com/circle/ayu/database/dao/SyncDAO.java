@@ -8,23 +8,21 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.circle.ayu.R;
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.app.IntelehealthApplication;
+import com.circle.ayu.database.InteleHealthDatabaseHelper;
+import com.circle.ayu.models.ActivePatientModel;
+import com.circle.ayu.models.dto.ResponseDTO;
+import com.circle.ayu.models.dto.VisitDTO;
+import com.circle.ayu.models.pushRequestApiCall.PushRequestApiCall;
+import com.circle.ayu.models.pushResponseApiCall.PushResponseApiCall;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.PatientsFrameJson;
+import com.circle.ayu.utilities.SessionManager;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.gson.Gson;
-
-import org.intelehealth.app.R;
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.app.IntelehealthApplication;
-import org.intelehealth.app.database.InteleHealthDatabaseHelper;
-import org.intelehealth.app.models.ActivePatientModel;
-import org.intelehealth.app.models.dto.ResponseDTO;
-import org.intelehealth.app.models.dto.VisitDTO;
-import org.intelehealth.app.models.pushRequestApiCall.PushRequestApiCall;
-import org.intelehealth.app.models.pushResponseApiCall.PushResponseApiCall;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.NotificationID;
-import org.intelehealth.app.utilities.PatientsFrameJson;
-import org.intelehealth.app.utilities.SessionManager;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -317,6 +315,8 @@ public class SyncDAO {
         List<ActivePatientModel> activePatientList = new ArrayList<>();
         getPatients(activePatientList);
 
+        // TODO: uncomment later...
+/*
         if (listPatientUUID != null) {
             for (int i = 0; i < listPatientUUID.size(); i++) {
                 for (int j = 0; j < activePatientList.size(); j++) {
@@ -331,6 +331,7 @@ public class SyncDAO {
                 }
             }
         }
+*/
     }
 
     private void getPatients(List<ActivePatientModel> activePatientList) {

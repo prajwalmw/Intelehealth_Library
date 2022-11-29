@@ -6,10 +6,11 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.Uuid_Value;
-import org.intelehealth.app.models.dto.ProviderAttributeListDTO;
-import org.intelehealth.app.utilities.exception.DAOException;
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.Uuid_Value;
+import com.circle.ayu.models.dto.ProviderAttributeListDTO;
+import com.circle.ayu.utilities.exception.DAOException;
+
 
 import java.util.ArrayList;
 import java.util.List;

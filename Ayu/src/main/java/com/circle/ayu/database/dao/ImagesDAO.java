@@ -6,15 +6,15 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.ObsImageModel.ObsPushDTO;
+import com.circle.ayu.models.patientImageModelRequest.PatientProfile;
+import com.circle.ayu.utilities.Base64Utils;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.UuidDictionary;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.ObsImageModel.ObsPushDTO;
-import org.intelehealth.app.models.patientImageModelRequest.PatientProfile;
-import org.intelehealth.app.utilities.Base64Utils;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.UuidDictionary;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -126,7 +126,8 @@ public class ImagesDAO {
         SQLiteDatabase localdb = AppConstants.inteleHealthDatabaseHelper.getWriteDb();
         localdb.beginTransaction();
         try {
-            Cursor idCursor = localdb.rawQuery("SELECT uuid FROM tbl_obs where (conceptuuid=? OR conceptuuid = ?) AND voided=? AND sync = ? COLLATE NOCASE", new String[]{UuidDictionary.COMPLEX_IMAGE_AD, UuidDictionary.COMPLEX_IMAGE_PE, "1", "false"});
+            Cursor idCursor = localdb.rawQuery("SELECT uuid FROM tbl_obs where (conceptuuid=? OR conceptuuid = ?) AND voided=? AND sync = ? COLLATE NOCASE",
+                    new String[]{UuidDictionary.COMPLEX_IMAGE_AD, UuidDictionary.COMPLEX_IMAGE_PE, "1", "false"});
             if (idCursor.getCount() != 0) {
                 while (idCursor.moveToNext()) {
                     uuidList.add(idCursor.getString(idCursor.getColumnIndexOrThrow("uuid")));

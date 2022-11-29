@@ -6,12 +6,12 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.dto.ProviderProfileDTO;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.dto.ProviderProfileDTO;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.util.List;
 

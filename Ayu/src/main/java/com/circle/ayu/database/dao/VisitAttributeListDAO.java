@@ -1,7 +1,8 @@
 package com.circle.ayu.database.dao;
 
-import static org.intelehealth.app.utilities.UuidDictionary.ADDITIONAL_NOTES;
-import static org.intelehealth.app.utilities.UuidDictionary.SPECIALITY;
+import static com.circle.ayu.utilities.UuidDictionary.ADDITIONAL_NOTES;
+import static com.circle.ayu.utilities.UuidDictionary.SPECIALITY;
+
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -9,9 +10,10 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.dto.VisitAttributeDTO;
-import org.intelehealth.app.utilities.exception.DAOException;
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.dto.VisitAttributeDTO;
+import com.circle.ayu.utilities.exception.DAOException;
+
 
 import java.util.List;
 import java.util.UUID;

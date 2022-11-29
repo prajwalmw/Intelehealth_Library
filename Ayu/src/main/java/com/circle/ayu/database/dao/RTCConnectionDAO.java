@@ -5,9 +5,11 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.dto.RTCConnectionDTO;
-import org.intelehealth.app.utilities.exception.DAOException;
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.dto.RTCConnectionDTO;
+import com.circle.ayu.utilities.exception.DAOException;
+
+
 
 public class RTCConnectionDAO {
 

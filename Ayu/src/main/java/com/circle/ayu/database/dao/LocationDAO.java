@@ -4,9 +4,10 @@ import android.content.ContentValues;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.models.dto.LocationDTO;
-import org.intelehealth.app.utilities.exception.DAOException;
+
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.models.dto.LocationDTO;
+import com.circle.ayu.utilities.exception.DAOException;
 
 import java.util.List;
 

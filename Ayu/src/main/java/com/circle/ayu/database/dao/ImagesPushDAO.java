@@ -3,18 +3,18 @@ package com.circle.ayu.database.dao;
 import android.content.Intent;
 import android.util.Log;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.app.IntelehealthApplication;
+import com.circle.ayu.models.ObsImageModel.ObsJsonResponse;
+import com.circle.ayu.models.ObsImageModel.ObsPushDTO;
+import com.circle.ayu.models.patientImageModelRequest.PatientProfile;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.SessionManager;
+import com.circle.ayu.utilities.UrlModifiers;
+import com.circle.ayu.utilities.exception.DAOException;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.gson.Gson;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.app.IntelehealthApplication;
-import org.intelehealth.app.models.ObsImageModel.ObsJsonResponse;
-import org.intelehealth.app.models.ObsImageModel.ObsPushDTO;
-import org.intelehealth.app.models.patientImageModelRequest.PatientProfile;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.SessionManager;
-import org.intelehealth.app.utilities.UrlModifiers;
-import org.intelehealth.app.utilities.exception.DAOException;
 
 import java.io.File;
 import java.util.ArrayList;

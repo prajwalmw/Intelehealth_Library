@@ -7,12 +7,11 @@ import androidx.annotation.NonNull;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.app.IntelehealthApplication;
+import com.circle.ayu.utilities.Logger;
+import com.circle.ayu.utilities.SessionManager;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.app.IntelehealthApplication;
-import org.intelehealth.app.utilities.Logger;
-import org.intelehealth.app.utilities.SessionManager;
 
 
 public class LastSyncWork extends Worker {

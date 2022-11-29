@@ -7,8 +7,9 @@ import android.content.Intent;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.WorkManager;
 
-import org.intelehealth.app.app.AppConstants;
-import org.intelehealth.app.utilities.Logger;
+import com.circle.ayu.app.AppConstants;
+import com.circle.ayu.utilities.Logger;
+
 
 public class BootCompleteReceiver extends BroadcastReceiver {
     private static final String TAG = BootCompleteReceiver.class.getSimpleName();
