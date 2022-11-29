@@ -4,8 +4,7 @@
 
     <application
         android:name=".app.IntelehealthApplication"
-        android:allowBackup="true"
-        android:fullBackupContent="@xml/backup_rules"
+        android:allowBackup="false"
         tools:targetApi="31">
 
         <activity
